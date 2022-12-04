@@ -1,0 +1,22 @@
+<app-header></app-header>
+
+<div id="carouselExampleControls"  data-bs-ride="carousel" style="cursor:pointer;" >
+      <div class="carousel-inner justify-content-end">
+  
+        <div class="carousel-item"  style="height:500px ;">
+          <div class="card">
+              <img [src]="prd?.imgURL" style="height: 200px;"  class="d-block w-100" alt="...">
+              <div class="card-body">
+                  <h5 class="card-title"></h5>
+                  <p class="card-text">{{prd?.name}}</p>
+                  <span style="color: red;">{{prd?.save}}</span>
+                  <br>
+                  <span ><del>{{prd?.beforeOffer}}</del>
+                    <br>
+                    {{prd?.price}}</span>            
+              </div>
+              <button type="button" class="btn btn-primary">Add To Card</button>
+          </div>        
+        </div>
+     </div>  
+ </div>    

@@ -1,0 +1,110 @@
+<!-- قسم اجدد المنتجات -->
+
+<!-- <div id="carouselExampleControls"  data-bs-ride="carousel" style="cursor:pointer;">
+  <h4 class="text-end p-5">اجدد المنتجات</h4>
+    <div class="carousel-inner">
+
+      <div class="carousel-item" *ngFor="let prd of prdOfferlist" style="height:400px ;">
+        <div class="card"(click)="OpenPrdDetails(prd.id)">
+            <img src="{{prd.imgURL}}"  style="height: 200px;"  class="d-block w-100" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">{{prd.name}}</p>
+                <span style="color: red;">{{prd.save}}</span>
+                <br>
+                <span ><del>{{prd.beforeOffer}}</del>
+                  <br>
+                  {{prd.price}}</span>            
+            </div>
+        </div>        
+      </div> -->
+
+      <h4 class="text-end p-5">اجدد المنتجات</h4>
+
+      <div class="row row-cols-1 row-cols-md-4 g-4" style="width: 100%;">
+
+        <div class="col" *ngFor="let prd of prdOfferlist">
+          <div class="card" (click)="OpenPrdDetails(prd.id)">
+            <img src="{{prd.imgURL}}"  class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title">{{prd.name}}</h5>
+              <span style="color: red;">{{prd.Save}}</span>
+              <br>
+              <span ><del>{{prd.BeforeOffer}}</del>
+                <br>
+                {{prd.Price}}</span>  
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <!-- <div class="carousel-item ">
+        <div class="card">
+            <img src="assets\cardbody1.PNG"  style="height: 200px;"  class="d-block w-100" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"></h5>
+                <p class="card-text">باور بنك شاومي شاومي مي، 10000 مللي أمبير، اسود- VXN4274GL</p>
+                <span style="color: red;">(0%) جنيه save</span>
+                <br>
+                <span >333 EGP</span>            
+            </div>
+        </div>        
+      </div>
+
+      <div class="carousel-item">
+        <div class="card">
+            <img src="assets\cardbody2.PNG"  style="height: 200px;"  class="d-block w-100" alt="...">
+            <div class="card-body">
+                <p class="card-text">ماكينة تشذيب الشعر براون 10 في 1، مع ماكينة حلاقة جيليت برو جلايد، اسود - MGK7320</p>
+                <span style="color: red;">(0%) جنيه save</span>
+                <br>
+                <span >2,779 EGP</span>
+            </div>
+        </div>     
+     </div>
+      <div class="carousel-item">
+         <div class="card">
+            <img src="assets\cardbody3.PNG"  style="height: 200px;"  class="d-block w-100" alt="...">
+            <div class="card-body">
+                <p class="card-text">كابل لايتنينج USB فئة C ابل، 1 متر، ابيض - MX0K2MQGJ2ZMA                </p>
+                <span style="color: red;">(0%) جنيه save</span>
+                <br>
+                <span >99 EGP</span>
+            </div>
+         </div> 
+        </div>
+        <div class="carousel-item">
+            <div class="card">
+               <img src="assets\cardbody4.PNG"  style="height: 200px;"  class="d-block w-100" alt="...">
+               <div class="card-body">
+                   <p class="card-text">تكييف كاريير اوبتي ماكس برو، 1.5 حصان، بارد وساخن، ابيض - QHCT12N-708F</p>
+                   <span style="color: red;">(0%) جنيه save</span>
+                   <br>
+                   <span >11,040 EGP</span>
+               </div>
+            </div> 
+           </div>
+           <div class="carousel-item">
+            <div class="card">
+               <img src="assets\cardbody5.PNG"  style="height: 200px;"  class="d-block w-100" alt="...">
+               <div class="card-body">
+                <br>
+                   <p class="card-text">ثلاجة نوفروست كريازي، 370 لتر، اسود - KH370LN</p>
+                   <span style="color: red;">وفر 93 جنيه (0%)</span>
+                   <br>
+                   <span >10,610 EGP</span>
+
+               </div>
+            </div> 
+           </div> -->
+    <!-- </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div> -->
