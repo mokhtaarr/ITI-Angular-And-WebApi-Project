@@ -20,24 +20,31 @@
     </div>
   
    
-    <div formArrayName="mobileNo">
-      <div class="mb-3 ms-4" *ngFor="let mob of mobileNo.controls;let i=index">
-        <label for="usrMobile{{i+1}}" class="form-label">Mobile No.{{i+1}}</label>
-        <input [(ngModel)]="newPrd.mobileNo" type="number"  class="form-control" name="usrMobile{{i+1}}"
-         id="usrMobile{{i+1}}" [formControlName]="i" > 
+   
+      <div class="mb-3 ms-4">
+        <label for="usrMobile" class="form-label">Mobile No</label>
+        <input [(ngModel)]="newPrd.mobileNo" type="number" formControlName="mobileNo" class="form-control" name="usrMobile"
+         id="usrMobile"  > 
   
-        <div class="btn-group " role="group" aria-label="Basic mixed styles example">
+        <!-- <div class="btn-group " role="group" aria-label="Basic mixed styles example">
           <button type="button" class="btn btn-primary" (click)="addMobileNo()" *ngIf="mob.value && i==mobileNo.controls.length-1">+</button>
           <button type="button" class="btn btn-danger" (click)="RemoveMobileNo()" *ngIf="mob.value && i==mobileNo.controls.length-1">-</button>
-        </div>
+        </div> -->
   
         <div [hidden]="mobileNo.valid || mobileNo.untouched" class="alert alert-warning">
-          <small >mobile is Required</small>
+          <small *ngIf="mobileNo?.errors?.['required']">Mobile Number is Required</small>
+          
        </div>
       </div>
+    
+    <div class="mb-3">
+      <label for="usradd" class="form-label">Address</label>
+      <input type="text" class="form-control" name="usradd" id="usradd" formControlName="address" [(ngModel)]="newPrd.email">
+      <div [hidden]="address?.valid || address?.untouched" class="alert alert-warning">
+        <small *ngIf="address?.errors?.['required']">address is Required</small>
+     </div>
     </div>
-  
-    <div formGroupName="address">
+    <!-- <div formGroupName="address">
       Address:
       <div class="mb-3 ms-2" >
   
@@ -64,7 +71,7 @@
          </div>
     </div>
     </div>
-  
+   -->
   
     <div class="mb-3">
       <label for="usrPass" class="form-label">Password</label>
@@ -81,7 +88,7 @@
     </div>
   
   <br>
-    <button type="submit" class="btn btn-success" routerLink="/Home" [disabled]="userFormGroup.invalid" style="width: 100px;">Sign Up</button>
+    <button type="submit" class="btn btn-success" routerLink="/LogIn" [disabled]="userFormGroup.invalid" style="width: 100px;" onclick="AddUser()">Sign Up</button>
     <br>
   </form>
   

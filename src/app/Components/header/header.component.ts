@@ -24,6 +24,7 @@ SelectedCatId:number = 0 ;
   }
 
   OpenPrdByCatId(catid:number){
-    this.route.navigate(['productByCatId',catid])
+    this.route.navigate(['productByCatId',catid]
+    )
   }
 }
