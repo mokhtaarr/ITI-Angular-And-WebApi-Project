@@ -22,6 +22,9 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 import { ProductByCatIdComponent } from './Components/product-by-cat-id/product-by-cat-id.component';
+import { CardComponent } from './Components/card/card.component';
+import { NgxPayPalModule } from 'ngx-paypal';
+import { OrderComponent } from './Components/order/order.component';
 
 
 
@@ -42,10 +45,13 @@ import { ProductByCatIdComponent } from './Components/product-by-cat-id/product-
     LogInFormComponent,
     CreateAccountComponent,
     ProductDetailsComponent,
-    ProductByCatIdComponent
+    ProductByCatIdComponent,
+    CardComponent,
+    OrderComponent
 
   ],
   imports: [
+    NgxPayPalModule,
     ReactiveFormsModule,
     FormsModule,
     BrowserModule,

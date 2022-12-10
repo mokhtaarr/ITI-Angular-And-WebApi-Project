@@ -1,11 +1,12 @@
 export interface IProductOffer {
-beforeOffer: any;
-price: any;
-save: any;
+    beforeOffer: any;
     id:number;
     name:string;
-    Price:string;
+    Price:number;
     imgURL:string;
     BeforeOffer:string;
     Save:string;
+    qtyTotal:number;
+    Quantity:number;
+    
 }

@@ -28,10 +28,13 @@ currentPrdID :number = 0
       this.currentPrdID=(paramMap.get('pid'))?Number(paramMap.get('pid')):0;
       
      this.productOfferApiservice.getProductByID(this.currentPrdID).subscribe(prdid=>{this.prd=prdid})
+     console.log(this.prd ,'prd')
 
  })
     
   }
+  
+ 
 
  
 }

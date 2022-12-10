@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Route, Router } from '@angular/router';
 import { IProductOffer } from 'src/app/Models/iproduct-offer';
 import { ProductOfferApiService } from 'src/app/Services/product-offer-api.service';
+import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
 
 @Component({
   selector: 'app-card-body',
@@ -10,7 +11,8 @@ import { ProductOfferApiService } from 'src/app/Services/product-offer-api.servi
 })
 export class CardBodyComponent implements OnInit {
  prdOfferlist?:IProductOffer[];
-  constructor(private productOfferApiService:ProductOfferApiService , private route:Router) { 
+  constructor(private productOfferApiService:ProductOfferApiService , private route:Router
+    , private shoppingCartservice:ShoppingCartService) { 
     
   }
 
@@ -20,6 +22,13 @@ export class CardBodyComponent implements OnInit {
   }
   OpenPrdDetails(prdID:number){
     this.route.navigate(['productdetails',prdID])
+  }
+  
+  AddToCart(prd:IProductOffer)
+  {
+    this.shoppingCartservice.addToCart(prd);
+    alert("Add Success")
+
   }
 
 

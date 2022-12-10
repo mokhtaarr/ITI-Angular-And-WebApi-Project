@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CardComponent } from './Components/card/card.component';
 import { CreateAccountComponent } from './Components/create-account/create-account.component';
 import { LogInFormComponent } from './Components/log-in-form/log-in-form.component';
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
@@ -21,6 +22,9 @@ const routes: Routes = [
   {path:'productdetails',component:ProductDetailsComponent},
   {path:'productdetails/:pid',component:ProductDetailsComponent},
   {path:'productByCatId/:catid',component:ProductByCatIdComponent},
+  {path:'productByCatId/:catid',component:ProductByCatIdComponent},
+  {path:'card',component:CardComponent},
+
   {path:'**',component:NotFoundComponent}
   // {path:'register',component:UserRegisterComponent},
 
