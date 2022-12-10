@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormArray, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateAccount } from 'src/app/Models/create-account';
+import { Isignup } from 'src/app/Models/isignup';
+import { SignupService } from 'src/app/Services/signup.service';
 
 @Component({
   selector: 'app-create-account',
@@ -10,18 +12,13 @@ import { CreateAccount } from 'src/app/Models/create-account';
 export class CreateAccountComponent implements OnInit {
   userFormGroup: FormGroup;
   newPrd:CreateAccount = {} as CreateAccount;
-  constructor(private formbuilder:FormBuilder) {
+  constructor(private formbuilder:FormBuilder ,private signUp:SignupService) {
     this.userFormGroup=this.formbuilder.group({
       fullName:['', [Validators.required,Validators.minLength(5)]],
       email:['', [Validators.required ,Validators.email]],
       //reular expressin
-      mobileNo:formbuilder.array([formbuilder.control('', [Validators.required , Validators.pattern(/^[0-9]\d*$/)
-    ])]),
-      address:this.formbuilder.group({
-        city:['' , [Validators.required]],
-        street:['', [Validators.required]],
-        PostalCode:['', [Validators.required]]
-      }),
+      mobileNo:['', [Validators.required ]],
+      address: ['', [Validators.required]],
       password:['', [Validators.required,Validators.minLength(6)]],
       repassword:['']
     })
@@ -47,19 +44,20 @@ export class CreateAccountComponent implements OnInit {
   get password(){
     return this.userFormGroup.get('password');
   }
-  addMobileNo(){
-    this.mobileNo.push(this.formbuilder.control(''));
-
-  }
-
-  RemoveMobileNo(){
-    this.mobileNo.removeAt(this.mobileNo.length-1);
-
-  }
+  
  
+  AddUser(){
+    let newUser :Isignup = {userName: this.userFormGroup.value.fullName, 
+      email: this.userFormGroup.value.email,
+      mobileNumber: this.userFormGroup.value.mobileNo,
+      address: this.userFormGroup.value.address,
+      password: this.userFormGroup.value.password}
+      // console.log(newUser);
+      // console.log(this.userFormGroup.value);
 
+this.signUp.SignUp(newUser).subscribe(()=>{ })
 
-
+    }
 
   ngOnInit(): void {
   }
