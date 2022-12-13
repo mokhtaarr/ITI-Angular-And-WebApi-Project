@@ -26,7 +26,9 @@ SignIn(){
   this.signIn.SignIn(User).subscribe((usr:Loggeduser)=>{
     
   
-    this.cookieService.set(usr.id, usr.userName,10);
+    this.cookieService.set("Id", usr.id,14);
+    this.cookieService.set("UserName", usr.userName,14);
+    this.cookieService.set("UserAddress", usr.address,14);
 }
   )}
 }

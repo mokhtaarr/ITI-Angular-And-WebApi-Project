@@ -6,6 +6,8 @@ import { LogInFormComponent } from './Components/log-in-form/log-in-form.compone
 import { MainLayoutComponent } from './Components/main-layout/main-layout.component';
 import { MainComponent } from './Components/main/main.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
+import { OrderComponent } from './Components/order/order.component';
+import { PaypalComponent } from './Components/paypal/paypal.component';
 import { ProductByCatIdComponent } from './Components/product-by-cat-id/product-by-cat-id.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
 
@@ -24,7 +26,8 @@ const routes: Routes = [
   {path:'productByCatId/:catid',component:ProductByCatIdComponent},
   {path:'productByCatId/:catid',component:ProductByCatIdComponent},
   {path:'card',component:CardComponent},
-
+  {path:'order',component:OrderComponent},
+  {path:'pay',component:PaypalComponent},
   {path:'**',component:NotFoundComponent}
   // {path:'register',component:UserRegisterComponent},
 

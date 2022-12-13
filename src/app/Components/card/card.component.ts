@@ -1,7 +1,14 @@
 import { CurrencyPipe } from '@angular/common';
 import { Component, ElementRef, OnInit, QueryList, ViewChildren } from '@angular/core';
-import { ICreateOrderRequest, IPayPalConfig } from 'ngx-paypal';
+import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { IOrder } from 'src/app/Models/iorder';
+import { IPayment } from 'src/app/Models/ipayment';
 import { IProductOffer } from 'src/app/Models/iproduct-offer';
+import { Loggeduser } from 'src/app/Models/loggeduser';
+import { OrderAPIService } from 'src/app/Services/order-api.service';
+import { PaymentAPIService } from 'src/app/Services/payment-api.service';
+import { ShoppingCartAPIService } from 'src/app/Services/shopping-cart-api.service';
 import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
 
 @Component({
@@ -10,11 +17,16 @@ import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-public payPalConfig ?: IPayPalConfig;
+user!: Loggeduser;
 item:IProductOffer[]=[];
 TotalPrice:number=0;
-
-  constructor(private shoppingCartservice:ShoppingCartService) { }
+cash:boolean=false;
+visa:boolean=false;
+  constructor(private shoppingCartservice:ShoppingCartService,
+    private route: Router,
+    private cookieService:CookieService,
+    private shoppingCartSer: ShoppingCartAPIService,
+    private paymentSer: PaymentAPIService,private orderSer:OrderAPIService) { }
 
 
  
@@ -22,7 +34,7 @@ TotalPrice:number=0;
   ngOnInit(): void {
 
     this.item = this.shoppingCartservice.getItems();
-    this.initConfig();
+    
   }
 
   addToCart(it:IProductOffer)
@@ -39,69 +51,49 @@ TotalPrice:number=0;
   {
     for(var x of this.item)
     {
-      this.TotalPrice += x.Price
+      this.TotalPrice += (x.Price * x.Quantity)
 
     }
   }
 
-  private initConfig(): void {
-    this.payPalConfig = {
-      currency: 'EGP',
-      clientId: 'AToDsg4D_1Rdhkp5gEA71rJcqvKLRahIV5DEC2wSVFdAkz6XdYODv2GsHzqx0UbqPCi-A3xLKSVabQX6', // add paypal clientId here
-      createOrderOnClient: (data) => <ICreateOrderRequest> {
-        intent: 'CAPTURE',
-        purchase_units: [{
-          amount: {
-            currency_code: 'EGP',
-            value: '0.01',
-            breakdown: {
-              item_total: {
-                currency_code: 'EGP',
-                value: '0.01'
-              }
-            }
-          },
-          items: [{
-            name: 'The Swag Coder',
-            quantity: '1',
-            category: 'DIGITAL_GOODS',
-            unit_amount: {
-              currency_code: 'EGP',
-              value: '0.01',
-            },
-          }]
-        }]
-      },
-      advanced: {
-        commit: 'true'
-      },
-      style: {
-        label: 'paypal',
-        layout: 'vertical',
+  OrderSubmit(){
+    
+    var id=this.cookieService.get("Id");
+    if(id==null || id == undefined){
+      this.route.navigate(['LogIn']);
+    }
+else{
+  var price  = this.TotalPrice ;
+    if(this.cash == true){
+ var shoppingcartID:number = 0;
 
-        color: 'blue',
-        shape: 'rect'
-      },
-      onApprove: (data, actions) => {
-        console.log('onApprove - transaction was approved, but not authorized', data, actions);
-        actions.order.get().then((details: any) => {
-          console.log('onApprove - you can get full order details inside onApprove: ', details);
-        });
-
-      },
-      onClientAuthorization: (data) => {
-        console.log('onClientAuthorization - you should probably inform your server about completed transaction at this point', data);
-      },
-      onCancel: (data, actions) => {
-        console.log('OnCancel', data, actions);
-
-      },
-      onError: err => {
-        console.log('OnError', err);
-      },
-      onClick: (data, actions) => {
-        console.log('onClick', data, actions);
+   //get items id to add in shopping cart
+    var itemsId:number[]=[] ;
+    for (const iterator of this.item) {
+      itemsId.push(iterator.id)
       }
-    };
+
+    // add Item in shopping cart
+     this. shoppingCartSer.Add(itemsId).subscribe((Id:number)=>{ shoppingcartID=Id; });
+//add payment 
+  var payment:IPayment={id:0,paymentType:"Cash",isAllowed:true}
+  var paymentId!:number ;
+  this.paymentSer.Add(payment).subscribe((ConfirmedPayment:IPayment)=>{ payment.id=ConfirmedPayment.id });
+
+//submit the order
+    var order:IOrder={id:0,
+      customerId:this.cookieService.get("Id"),
+      paymentId:payment.id,orderDate:new Date(),
+      isDeleted:false,shoppingCartId:shoppingcartID};
+
+      this.orderSer.Add(order)
+      this.route.navigate(['order', this.item]); 
+    }
+    if( this.visa==true){
+
+      this.route.navigate(['pay',price]);
+      }
+    }
   }
+
 }

@@ -25,6 +25,7 @@ import { ProductByCatIdComponent } from './Components/product-by-cat-id/product-
 import { CardComponent } from './Components/card/card.component';
 import { NgxPayPalModule } from 'ngx-paypal';
 import { OrderComponent } from './Components/order/order.component';
+import { PaypalComponent } from './Components/paypal/paypal.component';
 
 
 
@@ -47,7 +48,8 @@ import { OrderComponent } from './Components/order/order.component';
     ProductDetailsComponent,
     ProductByCatIdComponent,
     CardComponent,
-    OrderComponent
+    OrderComponent,
+    PaypalComponent
 
   ],
   imports: [
