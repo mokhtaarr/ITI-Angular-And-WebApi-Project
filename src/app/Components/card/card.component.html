@@ -15,7 +15,7 @@
               <div>{{ data.Price }}</div>
           </div>
           <div class="col-2">
-            <input type="number"  [(ngModel)]="item[i].Quantity">
+            <input type="number"  [(ngModel)]="item[i].Quantity" onchange="TotalPriceOfProduct()">
           </div>
           <div class="col-2">
             <h6 #TotalPrice>Total price : {{item[i].Quantity*data.Price}}</h6>
@@ -26,11 +26,21 @@
     </div> 
     
     <hr>
+    <div >
+      <label class="m-1" for="TotalPrice"> Order Total Price</label>
+      <input class="m-1" type="text" id="TotalPrice" [(ngModel)]="TotalPrice">
+    </div>
+    <div>
+      <input type="radio" class="btn-check" [(ngModel)]="cash" name="options" id="option2" autocomplete="off">
+      <label class="btn btn-primary m-1"  for="option2">{{"Cash"|translate}}</label>
+      <input type="radio" class="btn-check" [(ngModel)]="visa" name="options" id="option4" autocomplete="off">
+      <label class="btn btn-primary m-1"  for="option4">{{"Credit"|translate}}</label>
+    </div>
 <div class="d-flex justify-content-end" style="margin: 20px;">
-  <button class="btn btn-primary" style="width:200px ;">Buy Now</button>
+  <button class="btn btn-primary" style="width:200px ;" (click)="OrderSubmit()">{{"Buy Now"|translate}}</button>
 </div>
 <div class="d-flex justify-content-end" style="margin:20px ;">
-  <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+ 
 </div>
    
 
