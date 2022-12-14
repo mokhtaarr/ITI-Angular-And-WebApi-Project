@@ -46,30 +46,21 @@ TotalPrice:number=0;
 
   private initConfig(): void {
     this.payPalConfig = {
-      currency: 'EGP',
+      currency: 'USD',
       clientId: 'AToDsg4D_1Rdhkp5gEA71rJcqvKLRahIV5DEC2wSVFdAkz6XdYODv2GsHzqx0UbqPCi-A3xLKSVabQX6', // add paypal clientId here
       createOrderOnClient: (data) => <ICreateOrderRequest> {
         intent: 'CAPTURE',
         purchase_units: [{
           amount: {
-            currency_code: 'EGP',
-            value: '0.01',
+            currency_code: 'USD',
+            value: '1000', //Total Price
             breakdown: {
               item_total: {
-                currency_code: 'EGP',
-                value: '0.01'
+                currency_code: 'USD',
+                value: '1000' // Total Price
               }
             }
           },
-          items: [{
-            name: 'The Swag Coder',
-            quantity: '1',
-            category: 'DIGITAL_GOODS',
-            unit_amount: {
-              currency_code: 'EGP',
-              value: '0.01',
-            },
-          }]
         }]
       },
       advanced: {
