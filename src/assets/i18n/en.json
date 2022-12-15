@@ -40,6 +40,9 @@
     "AddToCard":"Add To Cart",
     "Buy Now":"Buy Now",
     "Cash":"Cash",
-    "Credit":"Credit"  
+    "Credit":"Credit" ,
+    "Back to home":"Back to home",
+    "It will be arrive at" : "It will be arrive at",
+    "Your Order has been requested successfully":"Your Order has been requested successfully"
 
 }
