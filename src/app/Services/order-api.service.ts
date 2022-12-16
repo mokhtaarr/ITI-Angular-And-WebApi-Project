@@ -16,7 +16,7 @@ export class OrderAPIService {
       })
     }}
 
-    Add(Order:IOrder):Observable<IOrder>{
-      return this.httpClient.post<IOrder>(`${environment.APIBaseURL}/Order`,JSON.stringify(Order), this.httpOptions)
+    Add(Order:IOrder):Observable<number>{
+      return this.httpClient.post<number>(`${environment.APIBaseURL}/Order`,JSON.stringify(Order), this.httpOptions)
     }
 }

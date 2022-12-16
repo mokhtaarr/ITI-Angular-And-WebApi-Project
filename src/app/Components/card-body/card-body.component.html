@@ -18,9 +18,14 @@
             </div>
         </div>        
       </div> -->
-
+<div >
       <h4 class="text-end p-5">اجدد المنتجات</h4>
+     <!-- <div class=" d-flex justify-content-center"> 
+      <input  style="margin: 20px;" type="number" placeholder="Enter your Price" (change)="filterProduct()" [(ngModel)]="inputPrice" class="form-control" />
 
+      <input style="margin: 20px;"  type="text" placeholder="Product/المنتج" (keyup)="filterByName(inputString.value)" #inputString class="form-control" />
+    </div> -->
+</div>
       <div class="row row-cols-1 row-cols-md-4 g-4" style="width: 100%;">
 
         <div class="col" *ngFor="let prd of prdOfferlist">
