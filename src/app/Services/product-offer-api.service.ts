@@ -24,7 +24,6 @@ export class ProductOfferApiService {
 
   }
   getProductsByCatId(CatId:number):Observable<IProductOffer[]>{
-
     return this.httpclient.get<IProductOffer[]>(`${environment.APIBaseURL}//Product/GetProductByCats?id=${CatId}`);
   }
 }
