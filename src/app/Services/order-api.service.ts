@@ -18,6 +18,7 @@ export class OrderAPIService {
 
     Add(Order:IOrder):Observable<number>{
       return this.httpClient.post<number>(`${environment.APIBaseURL}/Order`,JSON.stringify(Order), this.httpOptions)
+
     }
 
     delete(id:number):Observable<void>{
@@ -27,6 +28,6 @@ export class OrderAPIService {
       return this.httpClient.post<void>(`${environment.APIBaseURL}/Order/Update`,JSON.stringify(Order), this.httpOptions)
     }
     getById(id:number):Observable<IOrder>{
-      return this.httpClient.get<IOrder>(`${environment.APIBaseURL}/Order/GetById`);
+      return this.httpClient.get<IOrder>(`${environment.APIBaseURL}/Order/GetByID?id=${id}`);
     }
 }

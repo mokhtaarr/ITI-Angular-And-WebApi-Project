@@ -10,7 +10,11 @@ import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
   styleUrls: ['./card-body.component.css']
 })
 export class CardBodyComponent implements OnInit {
- prdOfferlist?:IProductOffer[];
+ prdOfferlist:IProductOffer[]=[];
+ inputPrice:number=0 ;
+
+ 
+
   constructor(private productOfferApiService:ProductOfferApiService , private route:Router
     , private shoppingCartservice:ShoppingCartService) { 
     
@@ -30,6 +34,19 @@ export class CardBodyComponent implements OnInit {
     alert("Add Success")
 
   }
+
+  filterProduct()
+  {
+
+    this.prdOfferlist = this.prdOfferlist.filter(b=>b.Price < this.inputPrice)
+  }
+
+  filterByName(item:string)
+  {
+    this.prdOfferlist = this.prdOfferlist.filter(b=>b.name.startsWith(item))
+  }
+
+  
 
 
 }

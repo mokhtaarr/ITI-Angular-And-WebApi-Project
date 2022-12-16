@@ -28,6 +28,11 @@ export class CardComponent implements OnInit {
   TotalPrice: number = 0;
   cash: boolean = false;
   visa: boolean = false;
+<<<<<<< HEAD
+=======
+  inputPrice:number=0 ;
+
+>>>>>>> 1e1af5699f39ea32c58768cb00743419e5607193
   constructor(
     private shoppingCartservice: ShoppingCartService,
     private route: Router,
@@ -41,6 +46,20 @@ export class CardComponent implements OnInit {
     this.item = this.shoppingCartservice.getItems();
   }
 
+<<<<<<< HEAD
+=======
+  filterProduct()
+  {
+
+    this.item = this.item.filter(b=>b.Price < this.inputPrice)
+  }
+
+  filterByName(item:string)
+  {
+    this.item = this.item.filter(b=>b.name.startsWith(item))
+  }
+
+>>>>>>> 1e1af5699f39ea32c58768cb00743419e5607193
   addToCart(it: IProductOffer) {
     if (!this.shoppingCartservice.itemInCart(it)) {
       it.qtyTotal = 1;
@@ -104,4 +123,8 @@ export class CardComponent implements OnInit {
       }
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1e1af5699f39ea32c58768cb00743419e5607193
