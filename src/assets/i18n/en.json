@@ -43,6 +43,19 @@
     "Credit":"Credit" ,
     "Back to home":"Back to home",
     "It will be arrive at" : "It will be arrive at",
-    "Your Order has been requested successfully":"Your Order has been requested successfully"
+    "Your Order has been requested successfully":"Your Order has been requested successfully",
+    "Name":"Name",
+    "Quantity":"Quantity",
+    "Unit Price":"Unit Price",
+    "Total price":"Total price",
+    "Delete":"Delete",
+    "Save":"Save",
+    "Are You sure you want to delete the order":"Are You sure you want to delete the order",
+    "Cancel":"Cancel",
+    "Confirm Deleting":"Confirm Deleting",
+    "Update Order":"Update Order",
+    "Delete Order":"Delete Order"
+    
+
 
 }

@@ -43,6 +43,17 @@
     "Credit":"الدفع بالفيزا",
     "Back to home":"الصفحه الرئيسيه",
     "It will be arrive at":"سوف يتم توصيل الاوردر الي",
-    "Your Order has been requested successfully":"تم تنفيذ طلبك بنجاح"
+    "Your Order has been requested successfully":"تم تنفيذ طلبك بنجاح",
+    "Name":"الاسم",
+    "Quantity":"العدد",
+    "Unit Price":"سعر الوحده",
+    "Total price":"السعر الاجمالي",
+    "Delete":"حذف",
+    "Save":"حفظ",
+    "Are You sure you want to delete the order":"هل انت متأكد من حذف الطلب",
+    "Cancel":"الغاء",
+    "Confirm Deleting":"تأكيد الحذف",
+    "Update Order":"تحديث الطلب",
+    "Delete Order":"حذف الطلب"
 
 }

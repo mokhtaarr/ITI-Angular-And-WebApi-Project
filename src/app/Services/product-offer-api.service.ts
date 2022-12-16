@@ -16,15 +16,15 @@ export class ProductOfferApiService {
    }
 
   getAllProductOffer():Observable<IProductOffer[]>{
-    return this.httpclient.get<IProductOffer[]>(`http://localhost:3000/ProductsWithOffer`)
+    return this.httpclient.get<IProductOffer[]>(`${environment.APIBaseURL}/Product/GetAll`)
   }
 
   getProductByID(prdID:number):Observable<IProductOffer>{
-    return this.httpclient.get<IProductOffer>(`http://localhost:3000/ProductsWithOffer/${prdID}`)
+    return this.httpclient.get<IProductOffer>(`${environment.APIBaseURL}/Product/GetProductByID?id=${prdID}`)
 
   }
   getProductsByCatId(CatId:number):Observable<IProductOffer[]>{
 
-    return this.httpclient.get<IProductOffer[]>(`http://localhost:3000/ProductsWithOffer?CatId=${CatId}`);
+    return this.httpclient.get<IProductOffer[]>(`${environment.APIBaseURL}//Product/GetProductByCats?id=${CatId}`);
   }
 }

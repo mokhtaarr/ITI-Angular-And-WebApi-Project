@@ -3,16 +3,14 @@
 <div class="row" style="margin: 20px">
     <div class="xl-col-6 sm-col-9">
         <p class="d-flex justify-content-center fs-4">
-            {{ "Your Order has been requested successfully" | translate }}
+            {{ "Your Order has been requested successfully"|translate }}
         </p>
         <br />
         <p class="d-flex justify-content-center fs-4">
             {{ "It will be arrive at" | translate }} {{ Address }}
         </p>
         <div class="d-flex justify-content-center">
-            <a class="btn btn-primary" routerLink="/Home">{{
-                "Back to home" | translate
-                }}</a>
+            <a class="btn btn-primary" routerLink="/Home">{{"Back to home" | translate}}</a>
         </div>
     </div>
 </div>
@@ -22,10 +20,10 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Quantity</th>
-                <th scope="col">Unit Price</th>
-                <th scope="col">Total price</th>
+                <th scope="col">{{"Name"|translate}}</th>
+                <th scope="col">{{"Quantity"|translate}}</th>
+                <th scope="col">{{"Unit Price"|translate}}</th>
+                <th scope="col">{{"Total price"|translate}}</th>
             </tr>
         </thead>
         <tbody>
@@ -42,9 +40,9 @@
     </table>
     <div class="">
         <button type="button" class="btn btn-danger m-1" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Delete Order
+            {{"Delete Order"|translate}}
         </button>
-        <a class="btn btn-warning m-1" routerLink="/update">Update Order</a>
+        <a class="btn btn-warning m-1" routerLink="/update">{{"Update Order"|translate}}</a>
     </div>
 </div>
 
@@ -52,20 +50,20 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Confirm Deleting</h5>
+                <h5 class="modal-title" id="exampleModalLabel">{{"Confirm Deleting"|translate}}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body">Are You sure you want to delete the order</div>
+            <div class="modal-body">{{"Are You sure you want to delete the order"|translate}}</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">
-                    Close
+                    {{"Cancel"| translate}}
                 </button>
                 <button type="button" class="btn btn-danger" (click)="deleteOrder()">
-                    Delete
+                    {{"Delete"|translate}}
                 </button>
             </div>
         </div>
     </div>
 
-    <app-footer></app-footer>
-</div>
+  </div> 
+ <app-footer></app-footer>

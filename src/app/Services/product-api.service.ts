@@ -13,7 +13,15 @@ export class ProductApiService {
 
   getAllProduct():Observable<IProduct[]>{
     // return this.httpclient.get<IProduct[]>(`${environment.APIBaseURL}/Products`)
-    return this.httpclient.get<IProduct[]>(`http://localhost:3000/Products`)
+    return this.httpclient.get<IProduct[]>(`${environment.APIBaseURL}/Product/GetAll`)
   }
 
+  getProductById(id:number):Observable<IProduct[]>{
+    // return this.httpclient.get<IProduct[]>(`${environment.APIBaseURL}/Products`)
+    return this.httpclient.get<IProduct[]>(`${environment.APIBaseURL}/Product/GetProductByID?id=${id}`)
+  }
+  getProductCategoryId(id:number):Observable<IProduct[]>{
+    // return this.httpclient.get<IProduct[]>(`${environment.APIBaseURL}/Products`)
+    return this.httpclient.get<IProduct[]>(`${environment.APIBaseURL}//Product/GetProductByCats?id=${id}`)
+  }
 }
