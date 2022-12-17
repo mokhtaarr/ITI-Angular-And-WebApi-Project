@@ -36,7 +36,7 @@ export class ProductByCatIdComponent implements OnInit {
 
   filterProduct()
   {
-    this.prdOfferlist = this.prdOfferlist.filter(p=>p.Price>this.PriceFrom && p.Price<this.PriceInto)
+    this.prdOfferlist = this.prdOfferlist.filter(p=>p.Price>=this.PriceFrom && p.Price<=this.PriceInto)
   }
 
 

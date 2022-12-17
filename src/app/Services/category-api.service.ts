@@ -14,11 +14,11 @@ export class CategoryApiService {
 
    getAllGategory():Observable<ICategory[]>{
     // return this.httpClient.get<ICategory[]>(` ${environment.APIBaseURL}/categories`);
-    return this.httpClient.get<ICategory[]>(`http://localhost:3000/categories`)
+    return this.httpClient.get<ICategory[]>(`${environment.APIBaseURL}/categories/GetAll`)
    }
 
    getGategoryById(CatId:number):Observable<ICategory>{
-    return this.httpClient.get<ICategory>(`${environment.APIBaseURL}/categories/${CatId}`)
+    return this.httpClient.get<ICategory>(`${environment.APIBaseURL}/categories/GetByID?id=${CatId}`)
    }
 
 }

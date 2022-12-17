@@ -28,7 +28,9 @@ export class CardComponent implements OnInit {
   TotalPrice: number = 0;
   cash: boolean = false;
   visa: boolean = false;
+
   inputPrice:number=0 ;
+
 
   constructor(
     private shoppingCartservice: ShoppingCartService,
@@ -43,6 +45,7 @@ export class CardComponent implements OnInit {
     this.item = this.shoppingCartservice.getItems();
   }
 
+
   filterProduct()
   {
 
@@ -53,6 +56,7 @@ export class CardComponent implements OnInit {
   {
     this.item = this.item.filter(b=>b.name.startsWith(item))
   }
+
 
   addToCart(it: IProductOffer) {
     if (!this.shoppingCartservice.itemInCart(it)) {

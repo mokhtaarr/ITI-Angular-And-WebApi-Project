@@ -10,6 +10,7 @@ import { OrderComponent } from './Components/order/order.component';
 import { PaypalComponent } from './Components/paypal/paypal.component';
 import { ProductByCatIdComponent } from './Components/product-by-cat-id/product-by-cat-id.component';
 import { ProductDetailsComponent } from './Components/product-details/product-details.component';
+import { UpdateOrderComponent } from './Components/update-order/update-order.component';
 
 const routes: Routes = [
   {path:'',component:MainComponent,children:[
@@ -26,8 +27,10 @@ const routes: Routes = [
   {path:'productByCatId/:catid',component:ProductByCatIdComponent},
   {path:'productByCatId/:catid',component:ProductByCatIdComponent},
   {path:'card',component:CardComponent},
-  {path:'order',component:OrderComponent},
+  {path:'Order',component:OrderComponent},
   {path:'pay',component:PaypalComponent},
+  {path:'update',component:UpdateOrderComponent},
+
   {path:'**',component:NotFoundComponent}
   // {path:'register',component:UserRegisterComponent},
 

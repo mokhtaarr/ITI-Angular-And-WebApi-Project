@@ -17,6 +17,6 @@ export class ShoppingCartAPIService {
     }}
 
     Add(Id:number[]):Observable<number>{
-      return this.httpClient.post<number>(`${environment.APIBaseURL}/ShoppingCarts/Add`,JSON.stringify(Id), this.httpOptions)
+      return this.httpClient.post<number>(`${environment.APIBaseURL}//ShoppingCart/Add`,JSON.stringify(Id), this.httpOptions)
     }
 }
