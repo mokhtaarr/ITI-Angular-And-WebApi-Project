@@ -1,5 +1,13 @@
 <app-header></app-header>
 
+<div class=" d-flex justify-content-center"> 
+  <input  style="margin: 20px; width:200px ;" type="number" placeholder="Price From"  [(ngModel)]="PriceFrom" class="form-control" />
+
+  <input  style="margin: 20px; width:200px" type="number" placeholder="Price Into"  [(ngModel)]="PriceInto" class="form-control" />
+
+  <button (click)="filterProduct()" class="btn btn-primary" style="height: 50px;margin: 20px">{{"Filter"|translate}}</button>
+</div>
+
 <div class="row row-cols-1 row-cols-md-4 g-4 " style="width: 100%; margin-top: 10px; margin-bottom: 10px;">
 
     <div class="col" *ngFor="let prd of prdOfferlist">

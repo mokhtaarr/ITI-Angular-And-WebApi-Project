@@ -1,11 +1,5 @@
 <app-header></app-header>
 
-<div class=" d-flex justify-content-center"> 
-  <input  style="margin: 20px;" type="number" placeholder="Enter your Price" (change)="filterProduct()" [(ngModel)]="inputPrice" class="form-control" />
-
-  <input style="margin: 20px;"  type="text" placeholder="Product/المنتج" (keyup)="filterByName(inputString.value)" #inputString class="form-control" />
-</div>
-
     <div class="row " style="margin:20px ; " >
       <div  class="col-12  " *ngFor="let data of item; let i = index">
         <div class="row    ">

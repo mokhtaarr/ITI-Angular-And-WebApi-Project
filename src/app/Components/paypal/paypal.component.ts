@@ -45,16 +45,7 @@ Userid :string;
               }
             }
           },
-          // items: [{
-          //   name: 'The Swag Coder',
-          //   quantity: '1',
-          //   category: 'DIGITAL_GOODS',
-          //   unit_amount: {
-          //     currency_code: 'USD',
-          //     value: `${this.price}`,
-          //     // value: '0.01',
-          //   },
-          // }]
+         
         }]
       },
       advanced: {

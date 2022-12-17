@@ -11,8 +11,10 @@ import { ShoppingCartService } from 'src/app/Services/shopping-cart.service';
 })
 export class ProductByCatIdComponent implements OnInit {
   currentCatId:number=0;
-  prd?:IProductOffer[];
-  prdOfferlist?:IProductOffer[];
+  prd:IProductOffer[] = [];
+  prdOfferlist:IProductOffer[]=[];
+  PriceFrom : number = 0 ;
+  PriceInto : number = 0 ;
   constructor(private productOfferApiservice : ProductOfferApiService,
     private activedRoute:ActivatedRoute,private shoppingCartservice:ShoppingCartService) { }
 
@@ -31,5 +33,11 @@ export class ProductByCatIdComponent implements OnInit {
     alert("Add Success")
 
   }
+
+  filterProduct()
+  {
+    this.prdOfferlist = this.prdOfferlist.filter(p=>p.Price>this.PriceFrom && p.Price<this.PriceInto)
+  }
+
 
 }
